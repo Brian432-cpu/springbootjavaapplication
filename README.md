@@ -1,87 +1,127 @@
-# 🚀 Spring Boot Docker Application with Azure DevOps
+# 🚀 Spring Boot Java Application
 
-This is a simple **Spring Boot** application containerized with **Docker** and deployed using **Azure DevOps Pipelines**.
-
----
-
-## 🧱 Project Overview
-
-This project demonstrates how to:
-- Build a Spring Boot application with Maven
-- Containerize the app using Docker
-- Push the Docker image to a container registry (DockerHub or ACR)
-- Automate the build and push process using Azure DevOps CI/CD pipeline
+A production-ready **Spring Boot** application containerized with **Docker** and integrated with **Azure Pipelines** for CI/CD.  
+This project demonstrates how to build, test, package, and deploy a Java application using modern DevOps practices.
 
 ---
 
-## 📂 Folder Structure
+## 📦 Features
 
-spring-boot-docker/
-├── src/ # Java source code
-├── pom.xml # Maven build file
-├── Dockerfile # Docker configuration
-├── azurepipeline.yaml # Azure DevOps pipeline definition
-└── README.md # Project documentation
-
+- ✅ Built with **Spring Boot** (Java 17)
+- 🐳 Containerized using **Docker**
+- ☁️ Automated CI/CD with **Azure Pipelines**
+- 🧪 Maven-based build and dependency management
+- 📜 RESTful API-ready architecture
+- 🔐 Configurable environment variables for security and flexibility
 
 ---
 
-## ⚙️ Run Locally
+## 🏗️ Project Structure
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/Brian432-cpu/springbootjavaapplication.git
-   cd springbootjavaapplication
+```bash
+springbootjavaapplication/
+├── src/                    # Application source code
+├── pom.xml                 # Maven build configuration
+├── Dockerfile              # Docker image build instructions
+├── azurepipeline.yaml      # Azure DevOps pipeline configuration
+└── README.md               # Project documentation
 
+⚙️ Requirements
 
-Build the project:
+Before you begin, make sure you have the following installed:
 
- :mvn clean package
+Java 17+
 
-Run the Spring Boot app:
+Maven 3.8+
 
-:java -jar target/*.jar
-:Access it at http://localhost:8080
+Docker
 
+Git
 
-🐳 Docker Usage
+Azure DevOps account (for pipeline builds)
 
-:docker build -t springbootapp:latest .
+🧰 Setup Instructions
+1️⃣ Clone the repository
 
-Run Container:
+git clone https://github.com/Brian432-cpu/springbootjavaapplication.git
+cd springbootjavaapplication
 
-docker run -d -p 8080:8080 springbootapp:latest
+2️⃣ Build the project with Maven
 
-🔧 Azure DevOps Pipeline
+./mvnw clean package
 
-The pipeline (azurepipeline.yaml) has two stages:
+3️⃣ Run locally
 
-Build – Builds the app and Docker image
+java -jar target/*.jar
 
-Push – Pushes the image to a container registry
+Your application will start on http://localhost:8080
+.
 
+🐳 Build & Run with Docker
+Build the Docker image
 
-☸️ Kubernetes (Optional)
+docker build -t springbootjavaapp .
 
-If you want to deploy this app on Kubernetes later, create manifest files:
+Run the container
 
-deployment.yaml
+docker run -p 8080:8080 springbootjavaapp
 
-service.yaml
+🧩 Azure Pipeline CI/CD
 
-Then deploy using:
+This project includes an azurepipeline.yaml file that automates:
 
-:kubectl apply -f k8s/
+Code checkout
 
-👨‍💻 Author
+Maven build and testing
+
+Docker image creation
+
+Push to container registry (e.g., Azure Container Registry or Docker Hub)
+
+You can integrate it with Azure DevOps by connecting your GitHub repo and creating a new pipeline.
+
+🧠 Environment Variables
+Variable	Description	Example
+SERVER_PORT	Port where the app runs	8080
+DB_URL	Database connection URL	jdbc:mysql://localhost:3306/db
+DB_USER	Database username	admin
+DB_PASS	Database password	password
+
+🧪 Testing
+
+Run unit tests with:
+
+./mvnw test
+
+🚀 Deployment
+
+You can deploy this container image to:
+
+Azure Web App for Containers
+
+Azure Kubernetes Service (AKS)
+
+Docker Hub
+
+Any cloud VM
+
+🧑‍💻 Author
 
 Brian Sumba
+📍 Nairobi, Kenya
+💼 https://github.com/Brian432-cpu
 
-💻 https://github.com/Brian432-cpu
+🧠 Passionate about Cloud Engineering, DevOps, and Cybersecurity
 
-☁️ Azure DevOps: kissingersumba1
+📄 License
 
-✉️ Passionate about Cloud, DevOps, and Cybersecurity
+This project is licensed under the MIT License
+.
 
-“Automate, containerize, and deploy with confidence.” 🚢
+🌟 Acknowledgements
 
+Spring Boot Documentation
+
+Azure Pipelines
+
+Docker Docs
